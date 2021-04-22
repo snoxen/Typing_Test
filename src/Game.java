@@ -1026,15 +1026,16 @@ public class Game {
     {
         String words[] = new String[numberOfWords+1];
 
+        //Assigning random values into our array
         int random;
-
         for (int i = 0; i<numberOfWords; i++)
         {
             random = r.nextInt(allWords.length);
             words[i] = allWords[random];
         }
 
-
+        //Starting to measure time
+        long start = System.currentTimeMillis();
 
         for (int z = 0; z<numberOfWords; z++)
         {
@@ -1044,9 +1045,14 @@ public class Game {
 
         int goodAnswers = numberOfWords - wrongAnswers;
 
+        long finish = System.currentTimeMillis();
+        long timeElapsed = finish - start;
+
         System.out.println("Finished!");
         System.out.println("You made: " + wrongAnswers + " mistakes!");
         System.out.println("Your score is: " + goodAnswers + "/" + numberOfWords);
+        System.out.println("Your total time was: " + timeElapsed / 1000 + "s");
+        System.out.println("Your average time per word was: " + timeElapsed/ 1000 /numberOfWords + "s");
         System.out.println("Congrats!");
     }
 
